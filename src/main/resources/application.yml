@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: monjaro
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/monjaro}
+    username: ${DATABASE_USER:monjaro}
+    password: ${DATABASE_PASSWORD}
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  sql:
+    init:
+      mode: never
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    issuer: monjaro
+    ttl: 30m
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
